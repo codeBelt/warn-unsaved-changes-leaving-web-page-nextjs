@@ -20,7 +20,7 @@ export const Layout = (props) => {
         />
       </Head>
       <MainNav />
-      <div>{props.children}</div>
+      <div className="flex justify-center items-center ">{props.children}</div>
     </section>
   );
 };

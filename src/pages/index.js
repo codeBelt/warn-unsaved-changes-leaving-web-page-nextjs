@@ -1,9 +1,3 @@
-import { Inter } from '@next/font/google';
-
 export default function Home() {
-  return (
-    <>
-      <main>asdf</main>
-    </>
-  );
+  return <div className="py-16">This is the home page.</div>;
 }
