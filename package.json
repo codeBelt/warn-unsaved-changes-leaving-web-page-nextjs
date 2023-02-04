@@ -1,0 +1,31 @@
+{
+  "name": "warn-unsaved-changes-leaving-web-page-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "---------- DEV --------------------------------------------------------": "",
+    "dev": "next",
+    "---------- PROD -------------------------------------------------------": "",
+    "build": "next build",
+    "start": "next start",
+    "---------- Analyze ----------------------------------------------------": "",
+    "analyze": "ANALYZE=true next build",
+    "---------- Testing ----------------------------------------------------": "",
+    "---------- Linting ----------------------------------------------------": "",
+    "lint": "next lint",
+    "prettier": "npx prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\"",
+    "ts": "tsc --noEmit",
+    "ts:overview": "tsc --extendedDiagnostics --noEmit",
+    "ts:listfiles": "tsc --listFilesOnly -p tsconfig.json",
+    "ts:watch": "npm run ts -- --watch",
+    "-----------------------------------------------------------------------": ""
+  },
+  "dependencies": {
+    "@next/font": "13.1.6",
+    "eslint": "8.33.0",
+    "eslint-config-next": "13.1.6",
+    "next": "13.1.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}

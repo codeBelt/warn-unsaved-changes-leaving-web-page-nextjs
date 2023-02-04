@@ -1,0 +1,14 @@
+*.d.ts
+*.min
+.github
+.jest-cache
+.jest-coverage
+.next
+.out
+build
+node_modules
+package.json
+tools/templates
+.DS_Store
+public/static/scripts
+.azure/
