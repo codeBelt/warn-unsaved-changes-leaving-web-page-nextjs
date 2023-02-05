@@ -12,7 +12,9 @@ export default function Form() {
       <Switch.Group>
         <div className="flex items-center">
           <Switch.Label className="mr-4">
-            {enabled ? 'Changes on page (Try to navigate away)' : 'No changes on page (You can navigate freely)'}
+            {enabled
+              ? 'Changes on page (Try to navigate away, refresh, close, or click the back button)'
+              : 'No changes on page (You can navigate freely)'}
           </Switch.Label>
           <Switch
             checked={enabled}
