@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Switch } from '@headlessui/react';
 import { useLeavePageConfirmation } from '@/hooks/useLeavePageConfirmation';
 
-export default function Form() {
+export default function FormRoute() {
   const [enabled, setEnabled] = useState(false);
 
   useLeavePageConfirmation(enabled);
