@@ -38,7 +38,8 @@ export const MainNav = (props) => {
         </div>
         <div>
           <a
-            href="#"
+            href="https://betterprogramming.pub/prevent-route-changes-and-unsaved-data-loss-in-next-js-f93622d73791"
+            target={'_blank'}
             className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
           >
             Read My Article
