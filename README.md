@@ -1,3 +1,8 @@
+Check out my article for this code. [Prevent Route Changes and Unsaved Data Loss in Next.js](https://medium.com/better-programming/prevent-route-changes-and-unsaved-data-loss-in-next-js-f93622d73791)
+
+--- 
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
