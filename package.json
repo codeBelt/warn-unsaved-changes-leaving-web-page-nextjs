@@ -18,15 +18,17 @@
     "ts:overview": "tsc --extendedDiagnostics --noEmit",
     "ts:listfiles": "tsc --listFilesOnly -p tsconfig.json",
     "ts:watch": "npm run ts -- --watch",
+    "---------- helper commands --------------------------------------------": "",
+    "up": "yarn upgrade-interactive --latest",
     "-----------------------------------------------------------------------": ""
   },
   "dependencies": {
     "@headlessui/react": "^1.7.9",
     "@heroicons/react": "^2.0.14",
-    "@next/font": "13.1.6",
-    "eslint": "8.33.0",
-    "eslint-config-next": "13.1.6",
-    "next": "13.1.6",
+    "@next/font": "13.4.3",
+    "eslint": "8.41.0",
+    "eslint-config-next": "13.4.3",
+    "next": "13.4.3",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
