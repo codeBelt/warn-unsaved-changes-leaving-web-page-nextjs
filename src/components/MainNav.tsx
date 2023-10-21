@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import React from 'react';
 
-export const MainNav = (props) => {
+interface IProps {}
+
+export const MainNav: React.FC<IProps> = () => {
   return (
     <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
       <div className="block lg:hidden">

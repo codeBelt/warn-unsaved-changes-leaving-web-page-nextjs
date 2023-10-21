@@ -1,7 +1,12 @@
+import React from 'react';
 import { MainNav } from '@/components/MainNav';
 import Head from 'next/head';
 
-export const Layout = (props) => {
+interface IProps {
+  children: React.ReactNode;
+}
+
+export const Layout: React.FC<IProps> = (props) => {
   return (
     <section>
       <Head>

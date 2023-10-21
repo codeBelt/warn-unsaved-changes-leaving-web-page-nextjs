@@ -1,18 +1,20 @@
 import SingletonRouter, { Router } from 'next/router';
 import { useEffect } from 'react';
 
-const defaultConfirmationDialog = async (msg) => window.confirm(msg);
+const defaultConfirmationDialog = async (msg?: string) => window.confirm(msg);
 
 export const useLeavePageConfirmation = (
-  shouldPreventLeaving,
-  message = 'Changes you made may not be saved.',
-  confirmationDialog = defaultConfirmationDialog
+  shouldPreventLeaving: boolean,
+  message: string = 'Changes you made may not be saved.',
+  confirmationDialog: (msg?: string) => Promise<boolean> = defaultConfirmationDialog
 ) => {
   useEffect(() => {
+    // @ts-ignore because "change" is private in Next.js
     if (!SingletonRouter.router?.change) {
       return;
     }
 
+    // @ts-ignore because "change" is private in Next.js
     const originalChangeFunction = SingletonRouter.router.change;
     const originalOnBeforeUnloadFunction = window.onbeforeunload;
 
@@ -34,8 +36,10 @@ export const useLeavePageConfirmation = (
      * possibility to use the window.confirm alert instead.
      */
     if (shouldPreventLeaving) {
+      // @ts-ignore because "change" is private in Next.js
       SingletonRouter.router.change = async (...args) => {
         const [historyMethod, , as] = args;
+        // @ts-ignore because "state" is private in Next.js
         const currentUrl = SingletonRouter.router?.state.asPath.split('?')[0];
         const changedUrl = as.split('?')[0];
         const hasNavigatedAwayFromPage = currentUrl !== changedUrl;
@@ -47,12 +51,14 @@ export const useLeavePageConfirmation = (
         }
 
         if (confirmed) {
+          // @ts-ignore because "change" is private in Next.js
           Router.prototype.change.apply(SingletonRouter.router, args);
         } else if (wasBackOrForwardBrowserButtonClicked && hasNavigatedAwayFromPage) {
           /*
            * The URL changes even if the user clicks "false" to navigate away from the page.
            * It is necessary to update it to reflect the current URL.
            */
+          // @ts-ignore because "state" is private in Next.js
           await SingletonRouter.router?.push(SingletonRouter.router?.state.asPath);
 
           /*
@@ -76,6 +82,7 @@ export const useLeavePageConfirmation = (
      * When the component is unmounted, the original change function is assigned back.
      */
     return () => {
+      // @ts-ignore because "change" is private in Next.js
       SingletonRouter.router.change = originalChangeFunction;
       window.onbeforeunload = originalOnBeforeUnloadFunction;
     };
