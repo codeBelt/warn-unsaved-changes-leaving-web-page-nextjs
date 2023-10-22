@@ -1,11 +1,26 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Switch } from '@headlessui/react';
 import { useLeavePageConfirmation } from '@/hooks/useLeavePageConfirmation';
+import { UnsavedDecision } from '@/components/dialogs/unsaved-changes-dialog/UnsavedChangesDialog.constants';
+import { UnsavedChangesDialogAction } from '@/components/dialogs/unsaved-changes-dialog/UnsavedChangesDialog.utils';
+import { displayDialog } from '../../stores/app-dialogs/AppDialogsGlobalStore.utils';
 
 export default function FormRoute() {
   const [changesOnPage, setChangesOnPage] = useState(false);
 
-  useLeavePageConfirmation(changesOnPage);
+  const customDialog = useCallback(async (msg?: string) => {
+    const { confirmed: decision } = await displayDialog(new UnsavedChangesDialogAction({ someData: 'hey' }));
+
+    if (decision === UnsavedDecision.Save) {
+      alert('save the data!');
+
+      return true;
+    }
+
+    return decision === UnsavedDecision.Discard;
+  }, []);
+
+  useLeavePageConfirmation(changesOnPage, '', customDialog);
 
   return (
     <div className="py-16">
