@@ -35,6 +35,8 @@ export const UnsavedChangesDialog: React.FC<IProps> = (props) => {
               changes.
             </Dialog.Description>
 
+            <p>{props.dialogAction.someData}</p>
+
             <div className="mt-4">
               <button
                 className={'border border-blue-500 rounded-md px-4 py-2 bg-blue-500 text-white'}
